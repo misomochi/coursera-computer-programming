@@ -83,10 +83,10 @@ int value (int t, int w, int h, int l) {
 	if (w <= 0 || h <= 0 || l <= 0)
 		return -2;
 	else {
-		int max = (w >= h && w >= l) ? w : ((h >= w && h >= l) ? h : l);
+		int min = (w <= h && w <= l) ? w : ((h <= w && h <= l) ? h : l);
 		int volume, count, temp;
 
-		for (int i = 1; i < max; ++i) {
+		for (int i = 1; i <= min; ++i) {
 			if (w % i == 0 && h % i == 0 && l % i == 0) {
 				volume = i * i * i;
 				count = (w/i) * (h/i) * (l/i);
